@@ -20,10 +20,10 @@ namespace ConsoleUI
             // Create a list of Vehicle called vehicles
             var vehicles = new List<Vehicle>();
 
-            Car car1 = new Car() { Year = "2016", Make = "Toyota", Model = "Camry" };
-            Motorcycle motorcycle1 = new Motorcycle() { Year = "2021", Make = "Ducati", Model = "Scrambler" };
-            Vehicle vehicle1 = new Car() { Year = "2023", Make = "Ford", Model = "F-150" };
-            Vehicle vehicle2 = new Motorcycle() { Year = "2023", Make = "Harley Davidson", Model = "Nightster" };
+            Car car1 = new Car() { Year = "2016", Make = "Toyota", Model = "Camry", HasTrunk = true };
+            Motorcycle motorcycle1 = new Motorcycle() { Year = "2021", Make = "Ducati", Model = "Scrambler", HasSideCar = false };
+            Vehicle vehicle1 = new Car() { Year = "2023", Make = "Ford", Model = "F-150", HasTrunk = true };
+            Vehicle vehicle2 = new Motorcycle() { Year = "2023", Make = "Harley Davidson", Model = "Nightster", HasSideCar = false };
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
@@ -44,7 +44,7 @@ namespace ConsoleUI
 
             foreach (var vehicle in vehicles)
             {
-                Console.WriteLine($"This is a {vehicle.Year} {vehicle.Make} {vehicle.Model}");
+                Console.WriteLine($"This is a {vehicle.Year} {vehicle.Make} {vehicle.Model}.");
             }
 
             // Call each of the drive methods for one car and one motorcycle
@@ -52,8 +52,8 @@ namespace ConsoleUI
             car1.DriveAbstract();
             car1.DriveVirtual();
             Console.WriteLine("------------------");
-            motorcycle1.DriveVirtual();
             motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual();
 
             #endregion            
             Console.ReadLine();
